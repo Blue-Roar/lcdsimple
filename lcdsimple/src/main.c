@@ -39,6 +39,8 @@ void get_fb_info(int *width, int *height) {
     close(fb_fd);
 }
 
+void lv_ui_entry(void);
+
 int main(void)
 {
     int width = 0;
@@ -65,7 +67,7 @@ int main(void)
 
     /*A small buffer for LittlevGL to draw the screen's content*/
     static lv_color_t sbuf0[DISP_BUF_SIZE], sbuf1[DISP_BUF_SIZE];
-    char *buf0 = sbuf0, *buf1 = sbuf1;;
+    char *buf0 = (char*)sbuf0, *buf1 = (char*)sbuf1;
     if(width > 2048) {
       buf0 = malloc(32*width);
       buf1 = malloc(32*width);
